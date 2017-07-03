@@ -31,7 +31,7 @@ $(function() {
 			{
 			
 			$('#playersZone').append('<div id="LatestPlayerAdditions" class="row" style="float:left;margin-right: 50px;margin-left: 50px;">'
-								+'<a onClick="yourFunction('+data[key].ID+')">One Way</a>'+"<br/>"
+								+'<a onClick="yourFunction('+data[key].ID+')">'+data[key].Fname+'</a>'+"<br/>"
 								+data[key].Lname+"<br/>"
 								+data[key].Position+"<br/>"
 								+data[key].Country+"<br/>"
@@ -106,7 +106,7 @@ function fillPlayers(data)
 			{
 			
 			$('#playersZone').append('<div id="LatestPlayerAdditions" class="row" style="float:left;margin-right: 50px;margin-left: 50px;">'
-								+data[key].Fname+"<br/>"
+								+'<a onClick="yourFunction('+data[key].ID+')">'+data[key].Fname+'</a>'+"<br/>"
 								+data[key].Lname+"<br/>"
 								+data[key].Position+"<br/>"
 								+data[key].Country+"<br/>"
