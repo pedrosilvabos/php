@@ -8,23 +8,23 @@ $(function() {
 	$.ajax({
 	  method: "GET",
 	  dataType: "json",
-	  url: "ajax.php?action=GetLatestPlayerAdditions",
+	  url: "ajax.php?action=LatestPlayerAdditions",
 
 	 success: function(data) 
 	 {
 			$('#portfolio').append(''+
 				'<div class="btn-group btn-group-justified" role="group" aria-label="...">'+
 					'<div class="btn-group" role="group">'+
-						'<button onclick="GetGoalkeepers()" type="button" class="btn btn-default">GoalKeepers</button>'+
+						'<button onclick="Goalkeeper()" type="button" class="btn btn-default">GoalKeepers</button>'+
 					'</div>'+
 					'<div class="btn-group" role="group">'+
-						'<button onclick="GetDefenses()" type="button" class="btn btn-default">Defenses</button>'+
+						'<button onclick="Defense()" type="button" class="btn btn-default">Defenses</button>'+
 					'</div>'+
 					'<div class="btn-group" role="group">'+
-						'<button onclick="GetMidfielders()" type="button" class="btn btn-default">Middlefielders</button>'+
+						'<button onclick="Middlefielder()" type="button" class="btn btn-default">Middlefielder</button>'+
 					'</div>'+
 					'<div class="btn-group" role="group">'+
-						'<button type="button" class="btn btn-default">Forwards</button>'+
+						'<button onclick="Forward()"type="button" class="btn btn-default">Forwards</button>'+
 					'</div>'+
 				'</div>');
 			$.each(data, function (key, value) 
@@ -43,17 +43,66 @@ $(function() {
 	});
 });
 
-function GetGoalkeepers()
+function Goalkeeper()
 {
 	$.ajax({
 	  method: "GET",
 	  dataType: "json",
-	  url: "ajax.php?action=GetGoalkeeper",
+	  url: "ajax.php?action=Goalkeeper",
 
 	 success: function(data) 
 	 {
+	
+			fillPlayers(data)	
+	}
+});
+}
+function Defense()
+{
+	$.ajax({
+	  method: "GET",
+	  dataType: "json",
+	  url: "ajax.php?action=Defense",
+
+	 success: function(data) 
+	 {
+	
+			fillPlayers(data)	
+	}
+});
+}
+function Middlefielder()
+{
+	$.ajax({
+	  method: "GET",
+	  dataType: "json",
+	  url: "ajax.php?action=Middlefielder",
+
+	 success: function(data) 
+	 {
+	
+			fillPlayers(data)	
+	}
+});
+}
+function Forward()
+{
+	$.ajax({
+	  method: "GET",
+	  dataType: "json",
+	  url: "ajax.php?action=Forward",
+
+	 success: function(data) 
+	 {
+	
+			fillPlayers(data)	
+	}
+});
+}
+function fillPlayers(data)
+{
 	$('#playersZone').empty();
-		$.each(data, function (key, value) 
+	$.each(data, function (key, value) 
 			{
 			
 			$('#playersZone').append('<div id="LatestPlayerAdditions" class="row" style="float:left;margin-right: 50px;margin-left: 50px;">'
@@ -64,56 +113,5 @@ function GetGoalkeepers()
 							+'</div>');
 			
 			});
-	}
-});
 }
-function GetDefenses()
-{
-	$.ajax({
-	  method: "GET",
-	  dataType: "json",
-	  url: "ajax.php?action=GetDefenses",
-
-	 success: function(data) 
-	 {
-	$('#playersZone').empty();
-		$.each(data, function (key, value) 
-			{
-			
-			$('#playersZone').append('<div id="LatestPlayerAdditions" class="row" style="float:left;margin-right: 50px;margin-left: 50px;">'
-								+data[key].Fname+"<br/>"
-								+data[key].Lname+"<br/>"
-								+data[key].Position+"<br/>"
-								+data[key].Country+"<br/>"
-							+'</div>');
-			
-			});
-	}
-});
-}
-function GetMidfielders()
-{
-	$.ajax({
-	  method: "GET",
-	  dataType: "json",
-	  url: "ajax.php?action=GetMidfielders",
-
-	 success: function(data) 
-	 {
-	$('#playersZone').empty();
-		$.each(data, function (key, value) 
-			{
-			
-			$('#playersZone').append('<div id="LatestPlayerAdditions" class="row" style="float:left;margin-right: 50px;margin-left: 50px;">'
-								+data[key].Fname+"<br/>"
-								+data[key].Lname+"<br/>"
-								+data[key].Position+"<br/>"
-								+data[key].Country+"<br/>"
-							+'</div>');
-			
-			});
-	}
-});
-}
-
 </script>

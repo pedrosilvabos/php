@@ -1,9 +1,24 @@
 <?php 
 include("classes/playersClass.php");
 
-if(($_GET['action'])=='GetLatestPlayerAdditions')
+if(
+	($_GET['action'])=='LatestPlayerAdditions' ||
+	($_GET['action'])=='Goalkeeper' ||
+	($_GET['action'])=='Defense' ||
+	($_GET['action'])=='Middlefielder' ||
+	($_GET['action'])=='Forward'
+		)
 {
-	$Result = playersClass::GetLatestPlayerAdditions();
+	if(($_GET['action'])=='LatestPlayerAdditions')
+	{
+
+	$Result = playersClass::GetLatestPlayerAdditions();	
+	}
+	else
+	{
+		$where = $_GET['action'];
+		$Result = playersClass::GetLatestPlayerAdditions(0, 50, $where);	
+	}
 	$GetLatestPlayerAdditionsArray =array();
 	foreach ($Result as $value) 
 	{
@@ -13,43 +28,5 @@ if(($_GET['action'])=='GetLatestPlayerAdditions')
 	echo(json_encode($GetLatestPlayerAdditionsArray));
 }
 
-if(($_GET['action'])=='GetGoalkeeper')
-{
-	$where='Goalkeeper';
-	$Result = playersClass::GetLatestPlayerAdditions(0, 50, $where);
 
-	$GetGoalkeepersArray =array();
-	foreach ($Result as $value) 
-	{
-		$GetGoalkeepersArray[] = $value;
-	}
-	
-	echo(json_encode($GetGoalkeepersArray));
-}
-if(($_GET['action'])=='GetDefenses')
-{
-	$where='Defense';
-	$Result = playersClass::GetLatestPlayerAdditions(0, 50, $where);
-
-	$GetDefensesArray =array();
-	foreach ($Result as $value) 
-	{
-		$GetDefensesArray[] = $value;
-	}
-	
-	echo(json_encode($GetDefensesArray));
-}
-if(($_GET['action'])=='GetMidfielders')
-{
-	$where='Middlefielder';
-	$Result = playersClass::GetLatestPlayerAdditions(0, 50, $where);
-
-	$GetMidfieldersArray =array();
-	foreach ($Result as $value) 
-	{
-		$GetMidfieldersArray[] = $value;
-	}
-	
-	echo(json_encode($GetMidfieldersArray));
-}
 ?>
