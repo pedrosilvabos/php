@@ -87,7 +87,7 @@
     <!-- Players Modal Section -->
     <section id="portfolio" class="bg-light-gray" style="padding:150px 0">
         <div class="container">
-            <div class="row" id=playersZone style="height: 360px;overflow:auto;">
+            <div class="row" id=playersZone style="height: 500px;overflow: auto;padding: 10px;margin-right: -15px;margin-left: -15px;margin-top: -100px;">
                 <?php include("profiles.php"); ?>
             </div>
         </div>
