@@ -26,9 +26,9 @@ if(
 	}
 	
 	echo(json_encode($GetLatestPlayerAdditionsArray));
-}
-elseif(($_GET['action'])=='player')
-{
+	}
+	elseif(($_GET['action'])=='player')
+	{
 
 	$id = $_GET['ID'];
 	$Result = playersClass::GetSinglePlayer($id);

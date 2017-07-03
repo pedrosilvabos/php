@@ -30,8 +30,9 @@ $(function() {
 			$.each(data, function (key, value) 
 			{
 
-			$('#playersZone').append('<div id="LatestPlayerAdditions" class="row" style="float:left;margin-right: 50px;margin-left: 50px;width: 150px;height: 150px;border:solid 1px #000;margin: 10px 10px 10px 10px;padding: 35px 0 0 40px;box-shadow: 5px 10px 40px 0;">'
-								+data[key].Fname+"<br/>"
+			
+			$('#playersZone').append('<div id="LatestPlayerAdditions" class="row" style="float:left;margin-right: 50px;margin-left: 50px;">'
+								+'<a onClick="yourFunction('+data[key].ID+')">'+data[key].Fname+'</a>'+"<br/>"
 
 								+data[key].Lname+"<br/>"
 								+data[key].Position+"<br/>"
@@ -105,9 +106,10 @@ function fillPlayers(data)
 	$('#playersZone').empty();
 	$.each(data, function (key, value) 
 			{
-			
-			$('#playersZone').append('<div id="LatestPlayerAdditions" class="row" style="float:left;margin-right: 50px;margin-left: 50px;width: 150px;height: 150px;border:solid 1px #000;margin: 10px 10px 10px 10px;padding: 35px 0 0 40px;box-shadow: 5px 10px 40px 0;">'
-								+data[key].Fname+"<br/>"
+
+			$('#playersZone').append('<div id="LatestPlayerAdditions" class="row" style="float:left;margin-right: 50px;margin-left: 50px;">'
+								+'<a onClick="yourFunction('+data[key].ID+')">'+data[key].Fname+'</a>'+"<br/>"
+
 								+data[key].Lname+"<br/>"
 								+data[key].Position+"<br/>"
 								+data[key].Country+"<br/>"
