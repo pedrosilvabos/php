@@ -93,7 +93,8 @@ class playersClass{
 		}
 	}
 
-	function RemovePlayer($Result){
+	function RemovePlayer($Result)
+	{
 		include("../db_con.php");
 
 	 	$query = "	DELETE 
@@ -110,6 +111,28 @@ class playersClass{
 		else 
 		{
 		    echo "<div class=\"alert alert-danger\" role=\"alert\">Error deleting record:</div>". $link->error;
+		}
+	}
+
+	function GetSinglePlayer($ID)
+	{
+
+		include("db_con.php");
+		$GetSinglePlayer = array();
+		$query = "SELECT 
+						* 
+					FROM 
+						players 
+					WHERE 
+						ID=$ID;";
+
+		if ($Result = $link->query($query)) 
+		{
+		 	while ($obj = $Result->fetch_object()) 
+    		{
+		    	$GetSinglePlayer[]= $obj;	
+    		}
+	    	return($GetSinglePlayer);		
 		}
 	}
 }

@@ -27,6 +27,12 @@ if(
 	
 	echo(json_encode($GetLatestPlayerAdditionsArray));
 }
+elseif(($_GET['action'])=='player')
+{
 
+	$id = $_GET['ID'];
+	$Result = playersClass::GetSinglePlayer($id);
+	echo json_encode($Result[0]);
+}
 
 ?>

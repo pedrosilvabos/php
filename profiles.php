@@ -31,7 +31,7 @@ $(function() {
 			{
 			
 			$('#playersZone').append('<div id="LatestPlayerAdditions" class="row" style="float:left;margin-right: 50px;margin-left: 50px;">'
-								+data[key].Fname+"<br/>"
+								+'<a onClick="yourFunction('+data[key].ID+')">One Way</a>'+"<br/>"
 								+data[key].Lname+"<br/>"
 								+data[key].Position+"<br/>"
 								+data[key].Country+"<br/>"
@@ -113,5 +113,27 @@ function fillPlayers(data)
 							+'</div>');
 			
 			});
+}
+function yourFunction(data)
+{
+	$.ajax({
+	  method: "GET",
+	  dataType: "json",
+	  url: "ajax.php?action=player&ID="+data,
+
+	 success: function(data) 
+	 {
+		var ID = data.ID;
+		var DOB = data.DOB;
+		var Position = data.Position;
+		var Fname = data.Fname;
+		var Lname = data.Lname;
+
+		$('#myModal').modal('show');
+		$('#modal-body').html(ID+'<br/>'+DOB+'<br/>'+Position+'<br/>'+Fname+'<br/>'+Lname);
+	
+	}
+	
+});
 }
 </script>
