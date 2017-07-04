@@ -13,18 +13,18 @@ $(function() {
 	 success: function(data) 
 	 {
 			$('#portfolio').append(''+
-				'<div class="btn-group btn-group-justified" role="group" aria-label="...">'+
-					'<div class="btn-group" role="group">'+
-						'<button onclick="Goalkeeper()" type="button" class="btn btn-default">GoalKeepers</button>'+
+				'<div class="btn-group btn-group-justified .btn-success" role="group" aria-label="..." style="    padding: 0 10px 0 20px;">'+
+					'<div class="intro-heading btn-group" role="group" >'+
+						'<button onclick="Goalkeeper()" type="button" class="btn btn-success intro-heading" style="height:60px;    font-family: Montserrat,Helvetica Neue,Helvetica,Arial,sans-serif;font-size: 30px;";>GoalKeepers</button>'+
 					'</div>'+
 					'<div class="btn-group" role="group">'+
-						'<button onclick="Defense()" type="button" class="btn btn-default">Defenses</button>'+
+						'<button onclick="Defense()" type="button" class="btn btn-success " style="height:60px;font-family: Montserrat,Helvetica Neue,Helvetica,Arial,sans-serif;font-size: 30px;";>Defenses</button>'+
 					'</div>'+
 					'<div class="btn-group" role="group">'+
-						'<button onclick="Middlefielder()" type="button" class="btn btn-default">Middlefielder</button>'+
+						'<button onclick="Middlefielder()" type="button" class="btn btn-success" style="height:60px;font-family: Montserrat,Helvetica Neue,Helvetica,Arial,sans-serif;font-size: 30px;";>Middlefielder</button>'+
 					'</div>'+
 					'<div class="btn-group" role="group">'+
-						'<button onclick="Forward()"type="button" class="btn btn-default">Forwards</button>'+
+						'<button onclick="Forward()"type="button" class="btn btn-success" style="height:60px;font-family: Montserrat,Helvetica Neue,Helvetica,Arial,sans-serif;font-size: 30px";>Forwards</button>'+
 					'</div>'+
 				'</div>');
 			$.each(data, function (key, value) 
@@ -33,7 +33,6 @@ $(function() {
 			
 			$('#playersZone').append('<div id="LatestPlayerAdditions" class="row" style="float:left;margin: 10px;padding:10px;height:150px;width:150px;box-shadow: 5px 0px 10px 0px; border:solix 1px #000>"'
 								+'<a onClick="showPlayerModal('+data[key].ID+')">'+data[key].Fname+'</a>'+"<br/>"
-
 								+data[key].Lname+"<br/>"
 								+data[key].Position+"<br/>"
 								+data[key].Country+"<br/>"
