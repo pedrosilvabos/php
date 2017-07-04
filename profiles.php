@@ -32,7 +32,7 @@ $(function() {
 
 			
 			$('#playersZone').append('<div id="LatestPlayerAdditions" class="row" style="float:left;margin: 10px;padding:10px;height:150px;width:150px;box-shadow: 5px 0px 10px 0px; border:solix 1px #000>"'
-								+'<a onClick="yourFunction('+data[key].ID+')">'+data[key].Fname+'</a>'+"<br/>"
+								+'<a onClick="showPlayerModal('+data[key].ID+')">'+data[key].Fname+'</a>'+"<br/>"
 
 								+data[key].Lname+"<br/>"
 								+data[key].Position+"<br/>"
@@ -108,7 +108,7 @@ function fillPlayers(data)
 			{
 		
 			$('#playersZone').append('<div id="LatestPlayerAdditions" class="row" style="float:left;margin: 10px;padding:10px;height:150px;width:150px;box-shadow: 5px 0px 10px 0px; border:solix 1px #000>"'
-								+'<a onClick="yourFunction('+data[key].ID+')">'+data[key].Fname+'</a>'+"<br/>"
+								+'<a onClick="showPlayerModal('+data[key].ID+')">'+data[key].Fname+'</a>'+"<br/>"
 								+data[key].Lname+"<br/>"
 								+data[key].Position+"<br/>"
 								+data[key].Country+"<br/>"
@@ -116,7 +116,7 @@ function fillPlayers(data)
 			
 			});
 }
-function yourFunction(data)
+function showPlayerModal(data)
 {
 	$.ajax({
 	  method: "GET",
