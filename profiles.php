@@ -15,29 +15,21 @@ $(function() {
 			$('#portfolio').append(''+
 				'<div class="btn-group btn-group-justified .btn-success" role="group" aria-label="..." style="    padding: 0 10px 0 20px;">'+
 					'<div class="intro-heading btn-group" role="group" >'+
-						'<button onclick="Goalkeeper()" type="button" class="btn btn-success intro-heading" style="height:60px;    font-family: Montserrat,Helvetica Neue,Helvetica,Arial,sans-serif;font-size: 30px;";>GoalKeepers</button>'+
+						'<button onclick="Goalkeeper()" type="button" class="btn btn-success intro-heading" style="height:60px;    font-family: Montserrat,Helvetica Neue,Helvetica,Arial,sans-serif;font-size: 20px;";>GoalKeepers</button>'+
 					'</div>'+
 					'<div class="btn-group" role="group">'+
-						'<button onclick="Defense()" type="button" class="btn btn-success " style="height:60px;font-family: Montserrat,Helvetica Neue,Helvetica,Arial,sans-serif;font-size: 30px;";>Defenses</button>'+
+						'<button onclick="Defense()" type="button" class="btn btn-success " style="height:60px;font-family: Montserrat,Helvetica Neue,Helvetica,Arial,sans-serif;font-size: 20px;";>Defenses</button>'+
 					'</div>'+
 					'<div class="btn-group" role="group">'+
-						'<button onclick="Middlefielder()" type="button" class="btn btn-success" style="height:60px;font-family: Montserrat,Helvetica Neue,Helvetica,Arial,sans-serif;font-size: 30px;";>Middlefielder</button>'+
+						'<button onclick="Middlefielder()" type="button" class="btn btn-success" style="height:60px;font-family: Montserrat,Helvetica Neue,Helvetica,Arial,sans-serif;font-size: 20px;";>Middlefielder</button>'+
 					'</div>'+
 					'<div class="btn-group" role="group">'+
-						'<button onclick="Forward()"type="button" class="btn btn-success" style="height:60px;font-family: Montserrat,Helvetica Neue,Helvetica,Arial,sans-serif;font-size: 30px";>Forwards</button>'+
+						'<button onclick="Forward()"type="button" class="btn btn-success" style="height:60px;font-family: Montserrat,Helvetica Neue,Helvetica,Arial,sans-serif;font-size: 20px";>Forwards</button>'+
 					'</div>'+
 				'</div>');
 			$.each(data, function (key, value) 
 			{
-
-			
-			$('#playersZone').append('<div id="LatestPlayerAdditions" class="row" style="float:left;margin: 10px;padding:10px;height:150px;width:150px;box-shadow: 5px 0px 10px 0px; border:solix 1px #000>"'
-								+'<a onClick="showPlayerModal('+data[key].ID+')">'+data[key].Fname+'</a>'+"<br/>"
-								+data[key].Lname+"<br/>"
-								+data[key].Position+"<br/>"
-								+data[key].Country+"<br/>"
-							+'</div>');
-			
+				fillPlayers(data)	
 			});
     }  
 
@@ -52,8 +44,7 @@ function Goalkeeper()
 	  url: "ajax.php?action=Goalkeeper",
 
 	 success: function(data) 
-	 {
-	
+	 {	
 			fillPlayers(data)	
 	}
 });
@@ -65,9 +56,8 @@ function Defense()
 	  dataType: "json",
 	  url: "ajax.php?action=Defense",
 
-	 success: function(data) 
+	success: function(data) 
 	 {
-	
 			fillPlayers(data)	
 	}
 });
@@ -79,9 +69,8 @@ function Middlefielder()
 	  dataType: "json",
 	  url: "ajax.php?action=Middlefielder",
 
-	 success: function(data) 
-	 {
-	
+	success: function(data) 
+	{
 			fillPlayers(data)	
 	}
 });
@@ -94,8 +83,7 @@ function Forward()
 	  url: "ajax.php?action=Forward",
 
 	 success: function(data) 
-	 {
-	
+	{
 			fillPlayers(data)	
 	}
 });
@@ -106,9 +94,10 @@ function fillPlayers(data)
 	$.each(data, function (key, value) 
 			{
 		
-			$('#playersZone').append('<div id="LatestPlayerAdditions" class="row" style="float:left;margin: 10px;padding:10px;height:150px;width:150px;box-shadow: 5px 0px 10px 0px; border:solix 1px #000>"'
-								+'<a onClick="showPlayerModal('+data[key].ID+')">'+data[key].Fname+'</a>'+"<br/>"
-								+data[key].Lname+"<br/>"
+			$('#playersZone').append('<div id="LatestPlayerAdditions" class="row" style="    float: left;margin: 10px;padding-left: 25px;height: 250px;width: 200px;box-shadow: 5px 0px 10px 0px;>"'
+								+'<a onClick="showPlayerModal('+data[key].ID+')"></a>'+"<br/>"
+								+'<img src=img/uploads/player_avatar/'+data[key].Avatar+' width=150px height=150px>'+"<br/>"
+								+data[key].Fname+' '+data[key].Lname+"<br/>"
 								+data[key].Position+"<br/>"
 								+data[key].Country+"<br/>"
 							+'</div>');

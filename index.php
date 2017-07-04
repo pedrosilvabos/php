@@ -90,7 +90,7 @@
             <div class="row" id=playersZone style="    
             height: 500px;
             overflow: auto;
-            padding: 10px;
+            padding: 0 0 0 85px;
             margin-right: -2px;
             margin-left: 0px;
             margin-top: -140px;">
