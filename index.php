@@ -22,7 +22,8 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
     <!-- Theme CSS -->
-    <link href="css/agency.min.css" rel="stylesheet">
+    <link href="css/agency.css" rel="stylesheet">
+    <link href="style/flags.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -90,10 +91,10 @@
             <div class="row" id=playersZone style="    
             height: 500px;
             overflow: auto;
-            padding: 10px;
+            padding: 0 0 0 25px;
             margin-right: -2px;
             margin-left: 0px;
-            margin-top: -140px;">
+            margin-top: -100px;">
                 <?php include("profiles.php"); ?>
             </div>
         </div>

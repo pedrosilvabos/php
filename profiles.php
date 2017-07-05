@@ -29,15 +29,7 @@ $(function() {
 				'</div>');
 			$.each(data, function (key, value) 
 			{
-
-			
-			$('#playersZone').append('<div id="LatestPlayerAdditions" class="row" style="float:left;margin: 10px;padding:10px;height:150px;width:150px;box-shadow: 5px 0px 10px 0px; border:solix 1px #000>"'
-								+'<a onClick="showPlayerModal('+data[key].ID+')">'+data[key].Fname+'</a>'+"<br/>"
-								+data[key].Lname+"<br/>"
-								+data[key].Position+"<br/>"
-								+data[key].Country+"<br/>"
-							+'</div>');
-			
+				fillPlayers(data)	
 			});
     }  
 
@@ -52,8 +44,7 @@ function Goalkeeper()
 	  url: "ajax.php?action=Goalkeeper",
 
 	 success: function(data) 
-	 {
-	
+	 {	
 			fillPlayers(data)	
 	}
 });
@@ -67,7 +58,6 @@ function Defense()
 
 	 success: function(data) 
 	 {
-	
 			fillPlayers(data)	
 	}
 });
@@ -79,9 +69,8 @@ function Middlefielder()
 	  dataType: "json",
 	  url: "ajax.php?action=Middlefielder",
 
-	 success: function(data) 
-	 {
-	
+	success: function(data) 
+	{
 			fillPlayers(data)	
 	}
 });
@@ -94,8 +83,7 @@ function Forward()
 	  url: "ajax.php?action=Forward",
 
 	 success: function(data) 
-	 {
-	
+	{
 			fillPlayers(data)	
 	}
 });
@@ -105,13 +93,13 @@ function fillPlayers(data)
 	$('#playersZone').empty();
 	$.each(data, function (key, value) 
 			{
-		
-			$('#playersZone').append('<div id="LatestPlayerAdditions" class="row" style="float:left;margin: 10px;padding:10px;height:150px;width:150px;box-shadow: 5px 0px 10px 0px; border:solix 1px #000>"'
-								+'<a onClick="showPlayerModal('+data[key].ID+')">'+data[key].Fname+'</a>'+"<br/>"
-								+data[key].Lname+"<br/>"
+			var getFlag = data[key].Country.toLowerCase();
+			$('#playersZone').append('<div id="Latest'+data[key].ID+'" class="row player_card thumbnail "'
+								+'<a onClick="showPlayerModal('+data[key].ID+')">'+data[key].Fname+' '+data[key].Lname+'</a>'+"<br/>"
+								+'<img src=img/uploads/player_avatar/'+data[key].Avatar+' width=150px height=150px>'
 								+data[key].Position+"<br/>"
-								+data[key].Country+"<br/>"
 							+'</div>');
+			$('#Latest'+data[key].ID+'').append('<img src="img/icons/spinner.gif" class="flag flag-'+getFlag+'" />');
 			
 			});
 }
