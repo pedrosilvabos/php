@@ -10,7 +10,7 @@ if(isset($_GET['ERASE']))
 	unset($_GET);
 }
 
-if(isset($_POST['DOB']) || isset($_POST['Position']) || isset($_POST['Fname']) || $_FILES["fileToUpload"]["name"] || isset($_POST['Country']) || isset($_POST['Weight']) || isset($_POST['Height']) || $_FILES["fileToUpload"]["name"])
+if(isset($_POST['Fname']))
 {
 	playersClass::insertNewPlayer($_POST['DOB'],$_POST['Position'],$_POST['Fname'],$_POST['Lname'],$_POST['Country'],$_POST['Weight'],$_POST['Height'],$_FILES["fileToUpload"]["name"]);
 	
@@ -58,8 +58,9 @@ if(isset($_POST['DOB']) || isset($_POST['Position']) || isset($_POST['Fname']) |
 				$positions=playersClass::GetCountries();
 				foreach ($positions as $p) 
 				{
+					$country_code= strtolower($p->country_code);
 					echo "
-					<option value=".$p.">".$p."</option>
+					<option value=".$country_code.">".$p->country_name."</option>
 					";
 				}
 			?>	

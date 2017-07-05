@@ -165,7 +165,11 @@ body, html {
     color: rgb(12, 97, 33);
 }
 
-  .row.equal {
-    display: flex;
-    flex-wrap: wrap;
-  }
+.row.equal {
+display: flex;
+flex-wrap: wrap;
+}
+.center-form {
+    display: inline-block;
+    text-align: center;
+    }

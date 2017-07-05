@@ -62,17 +62,15 @@ class playersClass{
 				    		$avatar = '../img/uploads/player_avatar/'.$obj->Avatar;
 				    	}
 				    	echo "
-							<div class=\"row\" style=\"float:left\" style=\"width:150px;height:150px\">
-										<div class=\"col-xs-1 col-md-11\" >
-							    <div >
-								    <a href=\"$obj->ID\" class=\"thumbnail\" style=\"width: 176px;height: 250px;margin: 10px;\">
-								      <img src=\"$avatar\" alt=\"...\" width=150px height=150px>
-								      $obj->Fname $obj->Lname
-								   	</a>
-							    </div>
-							    <p><a href=\"#\" class=\"btn btn-info btn-xs\" role=\"button\">Edit</a> 
-				    			<a href=\"?ERASE=$obj->ID\" class=\"btn btn-danger btn-xs\" role=\"delete\">Delete</a></p>
-							  </div>
+							<div id=\"LatestPlayerAdditions\" class=\"row player_card thumbnail\"'
+								<a onClick=\"showPlayerModal($obj->ID)\"></a><br/>
+							
+									<img src=../img/uploads/player_avatar/$obj->Avatar width=150px height=150px>$obj->Position
+									$obj->Country
+								<div>
+								    <p><a href=\"#\" class=\"btn btn-info btn-xs\" role=\"button\">Edit</a> 
+					    			<a href=\"?ERASE=$obj->ID\" class=\"btn btn-danger btn-xs\" role=\"delete\">Delete</a></p>
+								</div>
 							</div>		
 						";
 				    }
@@ -110,7 +108,7 @@ class playersClass{
 		include("../db_con.php");
 	 	$Positions = array();
 	 	$query = "	SELECT
-	 					 country_name 
+	 					 *
 	 				FROM 
 	 					countries";
 
@@ -118,7 +116,7 @@ class playersClass{
 		{
 		 	while ($obj = $Result->fetch_object()) 
     		{
-		    	$Countries[]= $obj->country_name;	
+		    	$Countries[]= $obj;	
     		}
 	    	return($Countries);		
 		}

@@ -5,7 +5,7 @@
  */
 body {
   overflow-x: hidden;
-  font-family: "Roboto Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 .text-muted {
   color: #777777;
@@ -555,7 +555,7 @@ aside.clients img {
 }
 section#contact {
   background-color: #222222;
-  background-image: url('../img/map-image.png');
+
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -743,4 +743,14 @@ img::-moz-selection {
 }
 body {
   webkit-tap-highlight-color: #fed136;
+}
+.player_card{
+    float: left;
+    margin: 10px;
+    text-align: center;
+    height: 307px;
+    width: 200px;
+    box-shadow: 5px 0px 10px 0px;
+    border: solid 2px rgba(74, 74, 74, 0.23);
+    border-radius: 15px;
 }

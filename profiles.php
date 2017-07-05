@@ -15,16 +15,16 @@ $(function() {
 			$('#portfolio').append(''+
 				'<div class="btn-group btn-group-justified .btn-success" role="group" aria-label="..." style="    padding: 0 10px 0 20px;">'+
 					'<div class="intro-heading btn-group" role="group" >'+
-						'<button onclick="Goalkeeper()" type="button" class="btn btn-success intro-heading" style="height:60px;    font-family: Montserrat,Helvetica Neue,Helvetica,Arial,sans-serif;font-size: 20px;";>GoalKeepers</button>'+
+						'<button onclick="Goalkeeper()" type="button" class="btn btn-success intro-heading" style="height:60px;    font-family: Montserrat,Helvetica Neue,Helvetica,Arial,sans-serif;font-size: 30px;";>GoalKeepers</button>'+
 					'</div>'+
 					'<div class="btn-group" role="group">'+
-						'<button onclick="Defense()" type="button" class="btn btn-success " style="height:60px;font-family: Montserrat,Helvetica Neue,Helvetica,Arial,sans-serif;font-size: 20px;";>Defenses</button>'+
+						'<button onclick="Defense()" type="button" class="btn btn-success " style="height:60px;font-family: Montserrat,Helvetica Neue,Helvetica,Arial,sans-serif;font-size: 30px;";>Defenses</button>'+
 					'</div>'+
 					'<div class="btn-group" role="group">'+
-						'<button onclick="Middlefielder()" type="button" class="btn btn-success" style="height:60px;font-family: Montserrat,Helvetica Neue,Helvetica,Arial,sans-serif;font-size: 20px;";>Middlefielder</button>'+
+						'<button onclick="Middlefielder()" type="button" class="btn btn-success" style="height:60px;font-family: Montserrat,Helvetica Neue,Helvetica,Arial,sans-serif;font-size: 30px;";>Middlefielder</button>'+
 					'</div>'+
 					'<div class="btn-group" role="group">'+
-						'<button onclick="Forward()"type="button" class="btn btn-success" style="height:60px;font-family: Montserrat,Helvetica Neue,Helvetica,Arial,sans-serif;font-size: 20px";>Forwards</button>'+
+						'<button onclick="Forward()"type="button" class="btn btn-success" style="height:60px;font-family: Montserrat,Helvetica Neue,Helvetica,Arial,sans-serif;font-size: 30px";>Forwards</button>'+
 					'</div>'+
 				'</div>');
 			$.each(data, function (key, value) 
@@ -56,7 +56,7 @@ function Defense()
 	  dataType: "json",
 	  url: "ajax.php?action=Defense",
 
-	success: function(data) 
+	 success: function(data) 
 	 {
 			fillPlayers(data)	
 	}
@@ -93,14 +93,13 @@ function fillPlayers(data)
 	$('#playersZone').empty();
 	$.each(data, function (key, value) 
 			{
-		
-			$('#playersZone').append('<div id="LatestPlayerAdditions" class="row" style="    float: left;margin: 10px;padding-left: 25px;height: 250px;width: 200px;box-shadow: 5px 0px 10px 0px;>"'
-								+'<a onClick="showPlayerModal('+data[key].ID+')"></a>'+"<br/>"
-								+'<img src=img/uploads/player_avatar/'+data[key].Avatar+' width=150px height=150px>'+"<br/>"
-								+data[key].Fname+' '+data[key].Lname+"<br/>"
+			var getFlag = data[key].Country.toLowerCase();
+			$('#playersZone').append('<div id="Latest'+data[key].ID+'" class="row player_card thumbnail "'
+								+'<a onClick="showPlayerModal('+data[key].ID+')">'+data[key].Fname+' '+data[key].Lname+'</a>'+"<br/>"
+								+'<img src=img/uploads/player_avatar/'+data[key].Avatar+' width=150px height=150px>'
 								+data[key].Position+"<br/>"
-								+data[key].Country+"<br/>"
 							+'</div>');
+			$('#Latest'+data[key].ID+'').append('<img src="img/icons/spinner.gif" class="flag flag-'+getFlag+'" />');
 			
 			});
 }

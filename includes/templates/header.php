@@ -109,8 +109,10 @@ else
         <!-- JQUERY -->
         <script type="text/javascript" language="javascript" src="../vendor/jquery/jquery.js"></script>
         <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css">
-
+<!-- Theme CSS -->
+    <link href="../css/agency.css" rel="stylesheet">
         <link href="../style/style.css" rel="stylesheet" type="text/css" media="all"/>
+
         <script type="text/javascript" language="javascript" src="../style/style.js"></script>
     </head>
  
@@ -121,8 +123,8 @@ else
                 <div class="navbar-header">
                     <a class="navbar-brand" href="index.php">Home </a>
                         <a class="navbar-brand" href="admin-profiles.php">Players</a>
-                        <a class="navbar-brand" href="#">Navbar 3</a>
-                        <a class="navbar-brand" href="#">Navbar 4</a>
+               <!--          <a class="navbar-brand" href="#">Navbar 3</a>
+                        <a class="navbar-brand" href="#">Navbar 4</a> -->
                         <a class="navbar-brand pull-right" href="logout.php?destroy"> <span class="glyphicon glyphicon-off"></span> Logout </a>
                         <a class="navbar-brand pull-right"><span class="glyphicon glyphicon-user"></span> <?=$_SESSION['name'];?> </a>
                         <form class="navbar-form navbar-left" action="" method="GET">
