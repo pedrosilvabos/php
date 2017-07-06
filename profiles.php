@@ -37,6 +37,7 @@ $(function() {
 });
 
 function Goalkeeper()
+//gets all the Goalkeeper players
 {
 	$.ajax({
 	  method: "GET",
@@ -63,6 +64,7 @@ function Defense()
 });
 }
 function Middlefielder()
+//gets all the Middlefielder players
 {
 	$.ajax({
 	  method: "GET",
@@ -76,6 +78,7 @@ function Middlefielder()
 });
 }
 function Forward()
+//gets all the Forward players
 {
 	$.ajax({
 	  method: "GET",
@@ -94,16 +97,16 @@ function fillPlayers(data)
 	$.each(data, function (key, value) 
 			{
 			var getFlag = data[key].Country.toLowerCase();
-			$('#playersZone').append('<div id="Latest'+data[key].ID+'" class="row player_card thumbnail "'
-								+'<a onClick="showPlayerModal('+data[key].ID+')">'+data[key].Fname+' '+data[key].Lname+'</a>'+"<br/>"
-								+'<img src=img/uploads/player_avatar/'+data[key].Avatar+' width=150px height=150px>'
-								+data[key].Position+"<br/>"
-							+'</div>');
-			$('#Latest'+data[key].ID+'').append('<img src="img/icons/spinner.gif" class="flag flag-'+getFlag+'" />');
-			
+			$('#playersZone').append('<div class="m_wrap"><div id="Latest'+data[key].ID+'" class="row player_card thumbnail "'
+				+'<a onClick="showPlayerModal('+data[key].ID+')"></a>'+"<br/>"
+				+'<img src=img/uploads/player_avatar/'+data[key].Avatar+' style="height: 76%";>'
+				+data[key].Fname+' '+data[key].Lname+"<br/>"
+				+'</div>');
+			$('#Latest'+data[key].ID+'').append('<div>'+data[key].Position+' '+'<img id="flag'+data[key].ID+'"src="img/icons/spinner.gif" class="flag flag-'+getFlag+'"/></div></div>');
 			});
 }
-function showPlayerModal(data)
+function showPlayerModal(data) 
+// this is the modal that opens when you click the player
 {
 	$.ajax({
 	  method: "GET",
@@ -117,10 +120,12 @@ function showPlayerModal(data)
 		var Position = data.Position;
 		var Fname = data.Fname;
 		var Lname = data.Lname;
-
+		var Avatar = data.Avatar;
 		$('#myModal').modal('show');
-		$('#modal-body').html(ID+'<br/>'+DOB+'<br/>'+Position+'<br/>'+Fname+'<br/>'+Lname);
-	
+		$('#modal-dialog').css('width','95%');
+		$('#modal-body').html('<img src=img/uploads/player_avatar/'+Avatar+' width=300px>');
+
+		
 	}
 	
 });
