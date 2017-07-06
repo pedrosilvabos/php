@@ -21,7 +21,8 @@ class playersClass{
 		{
 		    echo "Error: " . $query . "<br>" . $link->error . "<br>";
 		}		
-	}	   
+	}
+
 	function GetLatestPlayerAdditions($user=0, $limit=50,$where=null)
 	{
 		if($user==1)
@@ -34,6 +35,7 @@ class playersClass{
 	    }
 		if(isset($where)){$where = "WHERE Position='".$where."'";}
 		if(isset($limit)){$limit = "LIMIT ".$limit;}
+
 		$query = "
 			SELECT 
 					*
@@ -43,7 +45,8 @@ class playersClass{
 			ORDER BY
 				DateAdded
 				$limit;			
-		";
+			";
+
 			if ($Result = $link->query($query)) 
 			{
 				$GetLatestPlayerAdditionsArray = array();
@@ -53,25 +56,20 @@ class playersClass{
 	    			if($user==1)
 				    {
 				    	$admin = "";
-				    	if(empty($obj->Avatar))
-				    	{
-				    		$avatar = '../img/uploads/player_avatar/no_image_avatar.png';
-				    	}
-				    	else
-				    	{
+				    
 				    		$avatar = '../img/uploads/player_avatar/'.$obj->Avatar;
-				    	}
+				   
 				    	echo "
-							<div id=\"LatestPlayerAdditions\" class=\"row player_card thumbnail\"'
+							<span id=\"LatestPlayerAdditions\" class=\"player_card thumbnail\"'
 								<a onClick=\"showPlayerModal($obj->ID)\"></a><br/>
 							
-									<img src=../img/uploads/player_avatar/$obj->Avatar width=150px height=150px>$obj->Position
+									<img src=../img/uploads/player_avatar/$obj->Avatar style=\"height: 76%\">$obj->Position
 									$obj->Country
 								<div>
 								    <p><a href=\"#\" class=\"btn btn-info btn-xs\" role=\"button\">Edit</a> 
 					    			<a href=\"?ERASE=$obj->ID\" class=\"btn btn-danger btn-xs\" role=\"delete\">Delete</a></p>
 								</div>
-							</div>		
+							</span>		
 						";
 				    }
 				    else
@@ -145,7 +143,6 @@ class playersClass{
 
 	function GetSinglePlayer($ID)
 	{
-
 		include("db_con.php");
 		$GetSinglePlayer = array();
 		$query = "SELECT 

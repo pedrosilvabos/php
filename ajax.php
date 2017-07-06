@@ -7,12 +7,11 @@ if(
 	($_GET['action'])=='Defense' ||
 	($_GET['action'])=='Middlefielder' ||
 	($_GET['action'])=='Forward'
-		)
+	)
 {
 	if(($_GET['action'])=='LatestPlayerAdditions')
 	{
-
-	$Result = playersClass::GetLatestPlayerAdditions();	
+		$Result = playersClass::GetLatestPlayerAdditions();	
 	}
 	else
 	{
@@ -23,16 +22,14 @@ if(
 	foreach ($Result as $value) 
 	{
 		$GetLatestPlayerAdditionsArray[] = $value;
-	}
-	
-	echo(json_encode($GetLatestPlayerAdditionsArray));
+	}	
+		echo(json_encode($GetLatestPlayerAdditionsArray));
 	}
 	elseif(($_GET['action'])=='player')
 	{
-
-	$id = $_GET['ID'];
-	$Result = playersClass::GetSinglePlayer($id);
-	echo json_encode($Result[0]);
-}
+		$id = $_GET['ID'];
+		$Result = playersClass::GetSinglePlayer($id);
+		echo json_encode($Result[0]);
+	}
 
 ?>

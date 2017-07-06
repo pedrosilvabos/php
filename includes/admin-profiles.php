@@ -99,10 +99,6 @@ if(isset($_POST['Fname']))
 			</select>
 			</div>
 		</div>
-		
-
-		
-	
     	<span class="btn btn-default btn-file center-form">
 		 Select image to upload: <input type="file" name="fileToUpload" id="fileToUpload">
 		</span>
@@ -155,5 +151,5 @@ if(isset($_FILES["fileToUpload"]))
 	    }
 	}
 }
-
+include('templates/footer.php');
 ?>
