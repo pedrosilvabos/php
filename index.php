@@ -74,12 +74,17 @@
     </nav>
 
     <!-- Header -->
+
     <header>
-        <div class="container">
-            <div class="intro-text">
-               
-            </div>
-        </div>
+    <div id="slides" class="slides">
+    
+           <?php include"slides/slides.php" ?>       
+    </div>     
+    
+    <div class="container">          
+        <div class="intro-text">
+        </div> 
+    </div>
     </header>
 
     
@@ -94,6 +99,7 @@
             margin-left: 0px;
             margin-top: -100px;">
                 <?php include("profiles.php"); ?>
+                <!-- //change this to js -->
             </div>
         </div>
     </section>

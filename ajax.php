@@ -32,4 +32,10 @@ if(
 		echo json_encode($Result[0]);
 	}
 
+elseif(($_GET['action'])=='SlideShowBanner')
+{
+	$Result = playersClass::SlideShowBanner();
+	print_r($Result);
+}
+
 ?>

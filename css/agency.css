@@ -745,3 +745,8 @@ body {
 .rowFlag {
   display:inline-block;
 }
+.slides{
+  margin: 80px 0px 0px 91px;
+    position: absolute;
+    box-shadow: 1px 0px 45px 20px #000;
+}
