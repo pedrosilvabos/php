@@ -2,6 +2,6 @@
 
 include('../classes/coreclass.php');
 
-
-echo core::GetObject('*','players','','');
+echo '<pre>';
+echo core::GetObjectArray('*','players','','');
 ?>
