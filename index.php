@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Agency - Start Bootstrap Theme</title>
+    <title>OBS - Orange Blue Sports</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -22,7 +22,8 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
     <!-- Theme CSS -->
-    <link href="css/agency.min.css" rel="stylesheet">
+    <link href="css/agency.css" rel="stylesheet">
+    <link href="style/flags.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -73,22 +74,32 @@
     </nav>
 
     <!-- Header -->
+
     <header>
-        <div class="container">
-            <div class="intro-text">
-                <div class="intro-lead-in">Welcome To Your</div>
-                <div class="intro-heading">Women's Soccer Agency</div>
-                <a href="#services" class="page-scroll btn btn-xl">Tell Me More</a>
-            </div>
-        </div>
+    <div id="slides" class="slides">
+    
+           <?php include"slides/slides.php" ?>       
+    </div>     
+    
+    <div class="container">          
+        <div class="intro-text">
+        </div> 
+    </div>
     </header>
 
     
     <!-- Players Modal Section -->
     <section id="portfolio" class="bg-light-gray" style="padding:150px 0">
         <div class="container">
-            <div class="row" id=playersZone style="height: 360px;overflow:auto;">
+            <div class="row" id=playersZone style="    
+            height: 500px;
+            overflow: auto;
+            padding: 0 0 0 25px;
+            margin-right: -2px;
+            margin-left: 0px;
+            margin-top: -100px;">
                 <?php include("profiles.php"); ?>
+                <!-- //change this to js -->
             </div>
         </div>
     </section>
@@ -340,6 +351,25 @@
     </footer>
 
     <!-- Portfolio Modals -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div id="modal-dialog" class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div id="modal-body" class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
     <!-- Use the modals below to showcase details about your portfolio projects! -->
 
 
